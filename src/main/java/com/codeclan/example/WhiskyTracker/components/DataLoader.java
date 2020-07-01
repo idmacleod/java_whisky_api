@@ -34,7 +34,7 @@ public class DataLoader implements ApplicationRunner {
         Distillery distillery2 = new Distillery("Rosebank", "Lowland");
         distilleryRepository.save(distillery2);
 
-        Whisky whisky2 = new Whisky("The Rosebank 12 - Flora and Fona", 12, 1991, distillery2);
+        Whisky whisky2 = new Whisky("The Rosebank 12 - Flora and Fauna", 12, 1991, distillery2);
         whiskyRepository.save(whisky2);
 
 
