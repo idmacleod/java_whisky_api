@@ -25,8 +25,7 @@ public class WhiskyTrackerApplicationTests {
 	DistilleryRepository distilleryRepository;
 
 	@Test
-	public void contextLoads() {
-	}
+	public void contextLoads() {}
 
 	@Test
 	public void canFindWhiskiesByYear() {
@@ -41,15 +40,21 @@ public class WhiskyTrackerApplicationTests {
 	}
 
 	@Test
-	public void canFindWhiskiesFromDistilleryByAge() {
+	public void canFindWhiskiesByDistilleryIdAndAge() {
 		List<Whisky> foundWhiskies = whiskyRepository.findWhiskiesByDistilleryIdAndAge(1L, 15);
 		assertEquals("The Glendronach Revival", foundWhiskies.get(0).getName());
 	}
 
 	@Test
 	public void canFindWhiskiesByRegion(){
-		List<Whisky> foundWhiskies =whiskyRepository.findWhiskiesByDistilleryRegion("Islay");
+		List<Whisky> foundWhiskies = whiskyRepository.findWhiskiesByDistilleryRegion("Islay");
 		assertEquals(2, foundWhiskies.size());
-		assertEquals("Lagavulin 16 Year Old", foundWhiskies.get(0).getName());
 	}
+
+	@Test
+	public void canFindDistilleriesByWhiskiesAge() {
+		List<Distillery> foundDistilleries = distilleryRepository.findDistilleriesByWhiskiesAge(25);
+		assertEquals("Macallan", foundDistilleries.get(0).getName());
+	}
+
 }
